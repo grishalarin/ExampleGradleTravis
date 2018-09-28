@@ -14,12 +14,11 @@ repositories {
 
 
 test {
-    useJUnitPlatform()
-    systemProperty 'junit.jupiter.conditions.deactivate', '*'
-    systemProperties = [
-            'junit.jupiter.extensions.autodetection.enabled': 'true',
-            'junit.jupiter.testinstance.lifecycle.default': 'per_class'
-    ]
+    useJUnitPlatform(
+            {
+                include "junit-jupiter"
+            }
+    )
     afterSuite { desc, result ->
         if (!desc.parent)
             println("${result.resultType} " +
@@ -34,6 +33,6 @@ test {
 dependencies {
     testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.2.0-M1'
     testRuntime("org.junit.jupiter:junit-jupiter-engine:5.2.0-M1")
-    testCompile group: 'org.mockito', name:'mockito-core', version:'2.10.0'
+    testCompile group: 'org.mockito', name: 'mockito-core', version: '2.10.0'
     compile group: 'log4j', name: 'log4j', version: '1.2.17'
 }
