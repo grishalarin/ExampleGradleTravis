@@ -15,6 +15,11 @@ repositories {
 
 test {
     useJUnitPlatform()
+    systemProperty 'junit.jupiter.conditions.deactivate', '*'
+    systemProperties = [
+            'junit.jupiter.extensions.autodetection.enabled': 'true',
+            'junit.jupiter.testinstance.lifecycle.default': 'per_class'
+    ]
     afterSuite { desc, result ->
         if (!desc.parent)
             println("${result.resultType} " +
