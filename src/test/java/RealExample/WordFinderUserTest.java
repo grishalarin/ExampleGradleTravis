@@ -66,7 +66,7 @@ class WordFinderUserTest {
         verify(wordFinder,times(0)).writeSentenceToResult(SECOND_SENTENCE);
     }
 
-    @Test
+    /*@Test
     void doWorkCheckUrl(){
         final ArgumentCaptor<URL> argumentCaptor = ArgumentCaptor.forClass(URL.class);
         try {
@@ -76,7 +76,7 @@ class WordFinderUserTest {
         }
         verify(wordFinder.getSentences(argumentCaptor.capture()));
         assertEquals(FILE_ANY,argumentCaptor.getValue().toString());
-    }
+    }*/
 
     @Test
     void doWorkBadUrl(){
